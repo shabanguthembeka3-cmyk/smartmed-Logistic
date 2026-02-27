@@ -146,5 +146,8 @@ def delete_order(id):
     db.session.commit()
     return redirect(url_for('orders'))
 
+import os
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
