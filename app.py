@@ -14,7 +14,7 @@ login_manager.init_app(app)
 
 @app.route("/")
 def home():
-    return redirect(url_for("login"))
+   return "SmartMed is LIVE!"
 
 @app.route("/login")
 def login():
