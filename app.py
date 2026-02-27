@@ -12,6 +12,14 @@ login_manager = LoginManager()
 login_manager.login_view = "login"
 login_manager.init_app(app)
 
+@app.route("/")
+def home():
+    return redirect(url_for("login"))
+
+@app.route("/login")
+def login():
+    ...
+
 
 # Register Blueprints Here
 from routes.inventory import inventory_bp
