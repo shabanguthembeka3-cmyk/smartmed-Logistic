@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Orders</h2>
+
+<form method="POST">
+    <input name="product_name" class="form-control mb-2" placeholder="Product Name" required>
+    <input name="quantity" class="form-control mb-2" placeholder="Quantity" required>
+    <input name="status" class="form-control mb-2" placeholder="Status" required>
+    <button class="btn btn-primary">Create Order</button>
+</form>
+
+<table class="table mt-4">
+    <tr>
+        <th>Name</th>
+        <th>Qty</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.product_name }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>{{ order.status }}</td>
+        <td>
+            <a href="/delete_order/{{ order.id }}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
