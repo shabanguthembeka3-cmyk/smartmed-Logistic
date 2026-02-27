@@ -12,9 +12,11 @@ login_manager = LoginManager()
 login_manager.login_view = "login"
 login_manager.init_app(app)
 
+from flask import redirect, url_for
+
 @app.route("/")
 def home():
-   return "SmartMed is LIVE!"
+    return redirect(url_for("login"))
 
 @app.route("/login")
 def login():
